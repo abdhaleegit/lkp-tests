@@ -41,11 +41,11 @@ end.parse!
 test_specs = Dir["#{LKP_SRC}/jobs/*"].select {|job_file| File.size?(job_file) && job_file.end_with?('.yaml')}
                                      .map {|job_file| load_yaml(job_file, {})}
 
-test_specs = test_specs.select {|test_spec| test_spec['testcase'] && test_spec['testcase'] !~ /0day|internal/}
+test_specs = test_specs.select {|test_spec| test_spec['suite'] && test_spec['suite'] !~ /0day|internal/}
                        .select {|test_spec| test_spec['category'] == 'functional'}
                        .select {|test_spec| test_spec['rootfs'] !~ /(t100|eywa|rhel)/}
 
-test_specs = test_specs.uniq {|test_spec| test_spec['testcase']}.sort_by {|test_spec| test_spec['testcase']}
+test_specs = test_specs.uniq {|test_spec| test_spec['suite']}.sort_by {|test_spec| test_spec['suite']}
 
 def puts_md_heading(heading)
   puts heading
@@ -57,7 +57,7 @@ cmd << " -k " + $opt_kernel unless $opt_kernel.empty?
 cmd << " -d " + $opt_date unless $opt_date.empty?
 
 test_specs.each_with_index do |test_spec, index|
-  test_case = test_spec['testcase']
+  test_case = test_spec['suite']
   base_cmd = cmd + " -p /#{test_case}/ "
 
   last_state_is_incomplete_run_cmd = base_cmd + " -f last_state.is_incomplete_run "

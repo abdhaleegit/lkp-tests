@@ -684,7 +684,7 @@ class Job
     ## TODO: remove the following lines when we need not
     ## these default processing in the future
     rtp = ResultPath.new
-    rtp['testcase'] = @job['testcase']
+    rtp['suite'] = @job['suite']
     path_scheme = rtp.path_scheme
     if path_scheme.include? 'rootfs'
       as['rootfs'] ||= 'debian-x86_64.cgz'
@@ -736,7 +736,7 @@ class Job
   def _boot_result_root(commit)
     result_path = ResultPath.new
     result_path.update @job
-    result_path['testcase'] = 'boot'
+    result_path['suite'] = 'boot'
     result_path['path_params'] = '*'
     result_path['rootfs'] = '*'
     result_path['commit'] = commit

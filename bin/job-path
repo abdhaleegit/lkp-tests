@@ -7,4 +7,4 @@ require "#{LKP_SRC}/lib/job.rb"
 job = Job.new
 job.load(ARGV[0]) rescue exit
 
-puts job['testcase'] + '/' + job.path_params
+puts job['suite'] + '/' + job.path_params

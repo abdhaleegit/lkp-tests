@@ -210,7 +210,6 @@ def load_remotes
     project = File.basename(File.dirname(file))
     repo_info['project']  ||= project
     repo_info['suite']    ||= project + '-ci'
-    repo_info['testcase'] ||= project + '-ci'
 
     if repo_info['project'] == remote
       repo_info['upstream'] = true

@@ -314,7 +314,7 @@ def load_base_matrix(matrix_path, head_matrix, options)
 
   if matrix.size > 0
     if cols >= 3 or
-      (cols >= 1 and is_functional_test rp['testcase']) or
+      (cols >= 1 and is_functional_test rp['suite']) or
       head_matrix['last_state.is_incomplete_run'] or
       head_matrix['dmesg.boot_failures'] or
       head_matrix['stderr.has_stderr']

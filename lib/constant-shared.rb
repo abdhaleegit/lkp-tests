@@ -25,6 +25,6 @@ KERNEL_ROOT='/pkg/linux'
 BOOT_TEST_CASE='boot'
 DMESG_BOOT_FAILURES_STAT_KEY='dmesg.boot_failures'
 
-TESTCASE_AXIS_KEY='testcase'
+TESTCASE_AXIS_KEY='suite'
 COMMIT_AXIS_KEY='commit'
 TBOX_GROUP_AXIS_KEY='tbox_group'
